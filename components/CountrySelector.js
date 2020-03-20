@@ -2,10 +2,11 @@ import { useState } from "react";
 import useStats from "../utils/useStats";
 import Stats from "./Stats";
 import styled from "styled-components";
+import { Spinner } from "react-bootstrap";
 
 const Select = styled.select`
   background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgb(23, 162, 184);
   border-radius: 5px;
   display: block;
   padding: 10px;
@@ -18,9 +19,19 @@ export default function CountrySelector() {
     "https://covid19.mathdro.id/api/countries"
   );
   const [selectedCountry, setSelectedCountry] = useState("GBR");
-  if (loading) return <p>Loading...</p>;
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
+  if (loading)
+    return (
+      <div className="d-flex justify-content-center">
+        <Spinner animation="border" variant="info" />
+      </div>
+    );
+  if (loading)
+    return (
+      <div className="d-flex justify-content-center">
+        <Spinner animation="border" variant="info" />
+      </div>
+    );
+  if (error) return <h4 className="text-center">Error...</h4>;
 
   return (
     <div>

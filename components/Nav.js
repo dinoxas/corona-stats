@@ -18,7 +18,7 @@ function Nav() {
             />
             <FaNotesMedical
               size="30"
-              color="#D399E6"
+              color="#00d8ff"
               className="d-inline-block align-top"
             />
           </Navbar.Text>

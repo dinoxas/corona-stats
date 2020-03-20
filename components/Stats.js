@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import useStats from "../utils/useStats";
+import { Spinner } from "react-bootstrap";
 
 const StatGrid = styled.div`
-  background-color: #f8f9fa;
+  background-color: rgba(23, 162, 184, 0.1);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -20,8 +21,13 @@ export default function Stats({ url }) {
   const { stats, loading, error } = useStats(url);
 
   console.log(stats, loading, error);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
+  if (loading)
+    return (
+      <div className="d-flex justify-content-center">
+        <Spinner animation="border" variant="info" />
+      </div>
+    );
+  if (error) return <h4 className="text-center">Error...</h4>;
   return (
     <StatGrid>
       <StatBlock>
