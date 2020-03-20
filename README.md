@@ -1,5 +1,6 @@
-# rona 🦠
-Code along with React + Next + Hooks API
+## COVID-19 (Coronavirus) stats application
 
-<https://www.youtube.com/watch?v=B85s0cjlitE>
+Tech used: React + Next.JS + Hooks API
+
+[DEMO](https://dinoxas-corona.netlify.com/)
 
