@@ -9,6 +9,7 @@ const StatGrid = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 30px 0;
+  padding: 10px;
 
   @media (max-width: 600px) {
     display: block;
@@ -17,6 +18,9 @@ const StatGrid = styled.div`
 `;
 const StatBlock = styled.div`
   padding: 20px 10px;
+  @media (max-width: 600px) {
+    padding: 10px;
+  }
 `;
 
 export default function Stats({ url }) {
