@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import useStats from "../utils/useStats";
 import { Spinner } from "react-bootstrap";
+import Moment from "react-moment";
 
 const StatGrid = styled.div`
   background-color: rgba(23, 162, 184, 0.1);
@@ -8,6 +9,7 @@ const StatGrid = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 30px 0;
+
   @media (max-width: 600px) {
     display: block;
     text-align: center;
@@ -43,6 +45,11 @@ export default function Stats({ url }) {
       <StatBlock>
         <h5>Deaths</h5>
         <span>{stats.deaths.value}</span>
+      </StatBlock>
+
+      <StatBlock>
+        <h5>Last update</h5>
+        <Moment format="DD/MM/YYYY HH:mm">{stats.lastUpdate}</Moment>
       </StatBlock>
     </StatGrid>
   );
