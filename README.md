@@ -1,6 +1,6 @@
-## COVID-19 (Coronavirus) stats application
+## COVID-19 (Coronavirus) stats
 
-React app that displays the latest COVID-19 (Coronavirus) stats.
+React application that displays the latest COVID-19 (Coronavirus) stats.
 
 [DEMO](https://dinoxas-corona.netlify.com)
 
