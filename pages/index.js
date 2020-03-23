@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   .toggle-button {
     display: block;
     margin: 20px auto;
-    max-width: 200px;
+    max-width: 300px;
   }
 `;
 
@@ -34,10 +34,11 @@ export default function IndexPage() {
       </Head>
       <GlobalStyle />
       <Nav />
-      <Container fluid>
+      <Container>
         <Button
           className="toggle-button"
           variant="info"
+          size="lg"
           onClick={() => setOpen(!open)}
         >
           {open === false ? `Show ` : `Hide `} world stats
@@ -46,8 +47,14 @@ export default function IndexPage() {
         <Collapse in={open}>
           <Row>
             <Col md={12}>
-              <h5 className="mt-3 text-center">World</h5>
+              <h3 className="mt-3 text-center">World</h3>
               <Stats url="https://covid19.mathdro.id/api"></Stats>
+            </Col>
+            <Col md={12}>
+              <img
+                src="https://covid19.mathdro.id/api/og"
+                className="mx-auto d-block img-fluid mb-3"
+              />
             </Col>
           </Row>
         </Collapse>

@@ -10,8 +10,12 @@ const Select = styled.select`
   border-radius: 5px;
   display: block;
   padding: 10px;
-  margin: 20px auto 0;
+  margin: 20px auto;
   max-width: 300px;
+  @media (max-width: 600px) {
+    width: 100%;
+    max-width: none;
+  }
 `;
 
 export default function CountrySelector() {
@@ -35,7 +39,7 @@ export default function CountrySelector() {
 
   return (
     <div>
-      <h5 className="text-center">Currently Showing {selectedCountry}</h5>
+      <h3 className="text-center">Country: {selectedCountry}</h3>
 
       <Select
         onChange={e => {
@@ -56,6 +60,10 @@ export default function CountrySelector() {
       <Stats
         url={`https://covid19.mathdro.id/api/countries/${selectedCountry}`}
       ></Stats>
+      <img
+        src={`https://covid19.mathdro.id/api/countries/${selectedCountry}/og`}
+        className="mx-auto d-block img-fluid mb-3"
+      />
     </div>
   );
 }

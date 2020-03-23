@@ -8,8 +8,6 @@ const StatGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 30px 0;
-  padding: 10px;
 
   @media (max-width: 600px) {
     display: block;
@@ -18,6 +16,7 @@ const StatGrid = styled.div`
 `;
 const StatBlock = styled.div`
   padding: 20px 10px;
+  text-align: center;
   @media (max-width: 600px) {
     padding: 10px;
   }
@@ -35,26 +34,29 @@ export default function Stats({ url }) {
     );
   if (error) return <h4 className="text-center">Error...</h4>;
   return (
-    <StatGrid>
-      <StatBlock>
-        <h5>Confirmed</h5>
-        <span>{stats.confirmed.value}</span>
-      </StatBlock>
-
-      <StatBlock>
-        <h5>Recovered</h5>
-        <span>{stats.recovered.value}</span>
-      </StatBlock>
-
-      <StatBlock>
-        <h5>Deaths</h5>
-        <span>{stats.deaths.value}</span>
-      </StatBlock>
-
-      <StatBlock>
-        <h5>Last update</h5>
+    <div>
+      <div className="text-center mb-3">
+        <span className="">Last update: </span>{" "}
         <Moment format="DD/MM/YYYY HH:mm">{stats.lastUpdate}</Moment>
-      </StatBlock>
-    </StatGrid>
+      </div>
+      <StatGrid>
+        <StatBlock>
+          <h5>Confirmed</h5>
+          <h2 className="font-weight-bold">{stats.confirmed.value}</h2>
+        </StatBlock>
+
+        <StatBlock>
+          <h5>Recovered</h5>
+          <h2 className="font-weight-bold text-success">
+            {stats.recovered.value}
+          </h2>
+        </StatBlock>
+
+        <StatBlock>
+          <h5>Deaths</h5>
+          <h2 className="font-weight-bold text-danger">{stats.deaths.value}</h2>
+        </StatBlock>
+      </StatGrid>
+    </div>
   );
 }
