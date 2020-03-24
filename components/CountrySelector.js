@@ -23,6 +23,7 @@ export default function CountrySelector() {
     "https://covid19.mathdro.id/api/countries"
   );
   const [selectedCountry, setSelectedCountry] = useState("GBR");
+
   if (loading)
     return (
       <div className="d-flex justify-content-center">
@@ -47,13 +48,9 @@ export default function CountrySelector() {
         }}
         defaultValue={selectedCountry}
       >
-        {Object.entries(countries.countries).map(([country, code], index) => (
-          <option
-            // selected={selectedCountry === countries.iso3[code]}
-            key={index}
-            value={countries.iso3[code]}
-          >
-            {country}
+        {countries.countries.map((country, index) => (
+          <option key={index} value={country.iso3}>
+            {country.name}
           </option>
         ))}
       </Select>
