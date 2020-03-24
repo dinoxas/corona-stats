@@ -25,6 +25,7 @@ export default function IndexPage() {
       <Head>
         <title>COVID-19 Stats</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
         <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
