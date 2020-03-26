@@ -13,8 +13,13 @@ const GlobalStyle = createGlobalStyle`
   
   .toggle-button {
     display: block;
-    margin: 20px auto;
+    margin: 10px auto 20px;
     max-width: 300px;
+
+    @media (max-width: 600px) {
+      width: 100%;
+      max-width: none;
+    }
   }
 `;
 
@@ -35,31 +40,31 @@ export default function IndexPage() {
       </Head>
       <GlobalStyle />
       <Nav />
-      <Container>
-        <Button
-          className="toggle-button"
-          variant="info"
-          size="lg"
-          onClick={() => setOpen(!open)}
-        >
-          {open === false ? `Show ` : `Hide `} world stats
-          {open === false ? ` +` : ` -`}
-        </Button>
-        <Collapse in={open}>
-          <Row>
-            <Col md={12}>
-              <h3 className="mt-3 text-center">World</h3>
-              <Stats url="https://covid19.mathdro.id/api"></Stats>
-            </Col>
-            <Col md={12}>
-              <img
-                src="https://covid19.mathdro.id/api/og"
-                className="mx-auto d-block img-fluid mb-3"
-              />
-            </Col>
-          </Row>
-        </Collapse>
+      <Container fluid>
+        <Row>
+          <Col md={12}>
+            <h1 className="text-center mt-3 h2">COVID-19 Stats</h1>
+          </Col>
 
+          <Col md={12}>
+            <Button
+              className="toggle-button"
+              variant="info"
+              size="lg"
+              onClick={() => setOpen(!open)}
+            >
+              {open === false ? `Show ` : `Hide `} world data
+              {open === false ? ` +` : ` -`}
+            </Button>
+            <Collapse in={open}>
+              <Row>
+                <Col md={12}>
+                  <Stats url="https://covid19.mathdro.id/api"></Stats>
+                </Col>
+              </Row>
+            </Collapse>
+          </Col>
+        </Row>
         <Row>
           <Col md={12}>
             {" "}

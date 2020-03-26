@@ -5,13 +5,13 @@ import styled from "styled-components";
 import { Spinner } from "react-bootstrap";
 
 const Select = styled.select`
-  background: #fff;
+  background: rgba(23, 162, 184, 0.1);
   border: 1px solid rgb(23, 162, 184);
   border-radius: 5px;
   display: block;
-  padding: 10px;
-  margin: 20px auto;
-  max-width: 300px;
+  padding: 5px 10px;
+  margin: 0 auto 20px;
+  max-width: 200px;
   @media (max-width: 600px) {
     width: 100%;
     max-width: none;
@@ -40,8 +40,6 @@ export default function CountrySelector() {
 
   return (
     <div>
-      <h3 className="text-center">Country: {selectedCountry}</h3>
-
       <Select
         onChange={e => {
           setSelectedCountry(e.target.value);
@@ -57,10 +55,6 @@ export default function CountrySelector() {
       <Stats
         url={`https://covid19.mathdro.id/api/countries/${selectedCountry}`}
       ></Stats>
-      <img
-        src={`https://covid19.mathdro.id/api/countries/${selectedCountry}/og`}
-        className="mx-auto d-block img-fluid mb-3"
-      />
     </div>
   );
 }

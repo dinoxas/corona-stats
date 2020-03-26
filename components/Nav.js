@@ -6,7 +6,7 @@ function Nav() {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">COVID-19 Stats</Navbar.Brand>
+        <Navbar.Brand href="/">CoronApp</Navbar.Brand>
 
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
