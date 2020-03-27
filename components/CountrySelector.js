@@ -37,6 +37,9 @@ export default function CountrySelector() {
       </div>
     );
   if (error) return <h4 className="text-center">Error...</h4>;
+  console.log(countries.countries);
+
+  const CountryNames = countries.countries.map(({ name }) => name);
 
   return (
     <div>

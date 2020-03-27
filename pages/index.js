@@ -1,7 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import Stats from "../components/Stats";
 import Nav from "../components/Nav";
-import CountrySelector from "../components/CountrySelector";
+// import CountrySelector from "../components/CountrySelector";
+import CountryForm from "../components/CountryForm";
 import Head from "next/head";
 import { useState } from "react";
 import { Container, Row, Col, Button, Collapse } from "react-bootstrap";
@@ -25,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
 export default function IndexPage() {
   const [open, setOpen] = useState(false);
+
   return (
     <div>
       <Head>
@@ -45,12 +47,16 @@ export default function IndexPage() {
           <Col md={12}>
             <h1 className="text-center mt-3 h2">COVID-19 Stats</h1>
           </Col>
+        </Row>
+        <Row>
+          <Col md={12}>
+            <CountryForm />
+          </Col>
 
           <Col md={12}>
             <Button
               className="toggle-button"
               variant="info"
-              size="lg"
               onClick={() => setOpen(!open)}
             >
               {open === false ? `Show ` : `Hide `} world data
@@ -63,12 +69,6 @@ export default function IndexPage() {
                 </Col>
               </Row>
             </Collapse>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={12}>
-            {" "}
-            <CountrySelector></CountrySelector>
           </Col>
         </Row>
       </Container>
