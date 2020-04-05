@@ -11,8 +11,8 @@ export default function useStats(url) {
       setError(null);
       // console.log("Fetching Data");
       const data = await fetch(url)
-        .then(res => res.json())
-        .catch(err => {
+        .then((res) => res.json())
+        .catch((err) => {
           setError(err);
         });
       if (data.error) {
@@ -29,6 +29,6 @@ export default function useStats(url) {
   return {
     stats,
     loading,
-    error
+    error,
   };
 }

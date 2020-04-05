@@ -25,8 +25,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default function IndexPage() {
-  const [open, setOpen] = useState(false);
-
   return (
     <div>
       <Head>
@@ -42,33 +40,15 @@ export default function IndexPage() {
       </Head>
       <GlobalStyle />
       <Nav />
-      <Container fluid>
-        <Row>
-          <Col md={12}>
-            <h1 className="text-center mt-3 h2">COVID-19 Stats</h1>
-          </Col>
-        </Row>
+      <Container>
         <Row>
           <Col md={12}>
             <CountryForm />
           </Col>
 
           <Col md={12}>
-            <Button
-              className="toggle-button"
-              variant="info"
-              onClick={() => setOpen(!open)}
-            >
-              {open === false ? `Show ` : `Hide `} world data
-              {open === false ? ` +` : ` -`}
-            </Button>
-            <Collapse in={open}>
-              <Row>
-                <Col md={12}>
-                  <Stats url="https://covid19.mathdro.id/api"></Stats>
-                </Col>
-              </Row>
-            </Collapse>
+            <h5 className="mb-3 text-center">Global</h5>
+            <Stats url="https://covid19.mathdro.id/api"></Stats>
           </Col>
         </Row>
       </Container>

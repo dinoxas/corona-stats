@@ -9,18 +9,8 @@ export default function CountryForm() {
     "https://covid19.mathdro.id/api/countries"
   );
 
-  if (loading)
-    return (
-      <div className="d-flex justify-content-center">
-        <Spinner animation="border" variant="info" />
-      </div>
-    );
-  if (loading)
-    return (
-      <div className="d-flex justify-content-center">
-        <Spinner animation="border" variant="info" />
-      </div>
-    );
+  if (loading) return <div className="sr-only">Loading...</div>;
+
   if (error) return <h4 className="text-center">Error...</h4>;
 
   const CountryNames = countries.countries.map(({ name }) => name);

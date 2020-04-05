@@ -44,7 +44,7 @@ export default function CountrySelector() {
   return (
     <div>
       <Select
-        onChange={e => {
+        onChange={(e) => {
           setSelectedCountry(e.target.value);
         }}
         defaultValue={selectedCountry}

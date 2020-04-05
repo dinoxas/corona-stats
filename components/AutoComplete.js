@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Stats from "./Stats";
 import { InputGroup, Button } from "react-bootstrap";
+import { FaSearch } from "react-icons/fa";
 
 const Wrapper = styled.div`
   max-width: 300px;
-  margin: 10px auto 20px;
+  margin: 20px auto;
   position: relative;
 
   @media (max-width: 600px) {
@@ -15,16 +16,8 @@ const Wrapper = styled.div`
   }
 `;
 
-const CountryInput = styled.input`
-  background: rgba(23, 162, 184, 0.1);
-  border: 1px solid rgb(23, 162, 184);
-  border-radius: 5px;
-  display: block;
-  padding: 5px 10px;
-`;
-
 const CountryList = styled.ul`
-  border: 1px solid rgb(23, 162, 184);
+  // border: 1px solid rgb(23, 162, 184);
   background-color: #f8f9fa;
   border-top-width: 0;
   list-style: none;
@@ -52,10 +45,6 @@ const CountryListItem = styled.li`
     cursor: pointer;
     font-weight: 700;
   }
-
-  &:not(:last-of-type) {
-    border-bottom: 1px solid rgb(23, 162, 184);
-  }
 `;
 
 const NoSuggestion = styled.div`
@@ -69,11 +58,11 @@ export default function AutoComplete(props) {
 
   AutoComplete.propTypes = {
     suggestions: PropTypes.instanceOf(Array),
-    countries: PropTypes.instanceOf(Array)
+    countries: PropTypes.instanceOf(Array),
   };
 
   AutoComplete.defaultProps = {
-    suggestions: []
+    suggestions: [],
   };
 
   const [selectedCountry, setSelectedCountry] = useState("GBR");
@@ -87,8 +76,8 @@ export default function AutoComplete(props) {
   // What the user has entered
   const [userInput, setUserInput] = useState("");
 
-  const handleSubmit = input => {
-    const found = countries.find(c => c.name === input);
+  const handleSubmit = (input) => {
+    const found = countries.find((c) => c.name === input);
     if (found !== undefined) {
       setSelectedCountry(found.iso3);
     } else {
@@ -97,17 +86,17 @@ export default function AutoComplete(props) {
   };
 
   const showCountryName = () => {
-    const found = countries.find(c => c.iso3 === selectedCountry);
+    const found = countries.find((c) => c.iso3 === selectedCountry);
 
     return found.name;
   };
 
-  const onChange = e => {
+  const onChange = (e) => {
     const userInput = e.currentTarget.value;
 
     // Filter our suggestions that don't contain the user's input
     const filteredSuggestions = suggestions.filter(
-      suggestion =>
+      (suggestion) =>
         suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
 
@@ -117,14 +106,14 @@ export default function AutoComplete(props) {
     setUserInput(e.currentTarget.value);
   };
 
-  const onClick = e => {
+  const onClick = (e) => {
     setActiveSuggestion(0);
     setFilteredSuggestions([]);
     setShowSuggestions(false);
     setUserInput(e.currentTarget.innerText);
   };
 
-  const onKeyDown = e => {
+  const onKeyDown = (e) => {
     // const { activeSuggestion, filteredSuggestions } = this.state;
 
     // User pressed the enter key
@@ -190,7 +179,7 @@ export default function AutoComplete(props) {
     <Fragment>
       <Wrapper>
         <div className="input-group">
-          <CountryInput
+          <input
             placeholder="Country"
             aria-label="Country"
             className="form-control"
@@ -200,13 +189,13 @@ export default function AutoComplete(props) {
           />
           <InputGroup.Append>
             <Button
-              variant="info"
-              onClick={e => {
+              variant="secondary"
+              onClick={(e) => {
                 e.preventDefault();
                 handleSubmit(userInput);
               }}
             >
-              Search
+              <FaSearch size="20" color="#ffffff" />
             </Button>
           </InputGroup.Append>
         </div>
