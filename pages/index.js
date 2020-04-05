@@ -11,17 +11,11 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
-  
-  .toggle-button {
-    display: block;
-    margin: 10px auto 20px;
-    max-width: 300px;
 
-    @media (max-width: 600px) {
-      width: 100%;
-      max-width: none;
-    }
+  body {
+    background: rgb(250, 250, 250);
   }
+  
 `;
 
 export default function IndexPage() {
