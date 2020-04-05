@@ -16,8 +16,15 @@ const Wrapper = styled.div`
   }
 `;
 
+const CountryInput = styled.input`
+  &:focus {
+    box-shadow: none;
+    border-color: #6c757d;
+  }
+`;
+
 const CountryList = styled.ul`
-  // border: 1px solid rgb(23, 162, 184);
+  box-shadow: 0px 1px 8px #ccc;
   background-color: #f8f9fa;
   border-top-width: 0;
   list-style: none;
@@ -179,7 +186,7 @@ export default function AutoComplete(props) {
     <Fragment>
       <Wrapper>
         <div className="input-group">
-          <input
+          <CountryInput
             placeholder="Country"
             aria-label="Country"
             className="form-control"
