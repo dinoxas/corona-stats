@@ -72,7 +72,7 @@ export default function AutoComplete(props) {
     suggestions: [],
   };
 
-  const [selectedCountry, setSelectedCountry] = useState("GBR");
+  const [selectedCountry, setSelectedCountry] = useState("GRC");
 
   // The active selection's index
   const [activeSuggestion, setActiveSuggestion] = useState(0);
@@ -94,7 +94,6 @@ export default function AutoComplete(props) {
 
   const showCountryName = () => {
     const found = countries.find((c) => c.iso3 === selectedCountry);
-
     return found.name;
   };
 
