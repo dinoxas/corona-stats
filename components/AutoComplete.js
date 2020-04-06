@@ -201,7 +201,7 @@ export default function AutoComplete(props) {
                 handleSubmit(userInput);
               }}
             >
-              <FaSearch size="20" color="#ffffff" />
+              <FaSearch size="18" color="#ffffff" />
             </Button>
           </InputGroup.Append>
         </div>

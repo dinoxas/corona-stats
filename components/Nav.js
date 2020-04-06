@@ -12,13 +12,13 @@ function Nav() {
 
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
+          <span>
             <FaReact
               color="#333"
-              size="36"
+              size="30"
               className="d-inline-block align-top ml-2 mr-2"
             />
-          </Navbar.Text>
+          </span>
         </Navbar.Collapse>
       </Container>
     </Navbar>
