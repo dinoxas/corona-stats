@@ -52,8 +52,6 @@ const StatHeading = styled.h2`
 
 export default function Stats({ url }) {
   const { stats, loading, error } = useStats(url);
-
-  console.log(stats);
   if (loading)
     return (
       <div className="d-flex justify-content-center">
