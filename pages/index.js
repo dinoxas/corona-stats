@@ -1,11 +1,11 @@
-import { createGlobalStyle } from "styled-components";
-import Stats from "../components/Stats";
-import Nav from "../components/Nav";
-// import CountrySelector from "../components/CountrySelector";
-import CountryForm from "../components/CountryForm";
-import Head from "next/head";
-import { useState } from "react";
-import { Container, Row, Col, Button, Collapse } from "react-bootstrap";
+import { createGlobalStyle } from 'styled-components';
+import Stats from '../components/Stats';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
+import CountryForm from '../components/CountryForm';
+import Head from 'next/head';
+import React, { Fragment } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -20,16 +20,16 @@ const GlobalStyle = createGlobalStyle`
 
 export default function IndexPage() {
   return (
-    <div>
+    <Fragment>
       <Head>
         <title>COVID-19 Stats</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <link rel='icon' type='image/x-icon' href='favicon.ico' />
         <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous"
+          rel='stylesheet'
+          href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
+          integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh'
+          crossorigin='anonymous'
         />
       </Head>
       <GlobalStyle />
@@ -41,11 +41,12 @@ export default function IndexPage() {
           </Col>
 
           <Col md={12}>
-            <h5 className="mb-3 text-center">Global</h5>
-            <Stats url="https://covid19.mathdro.id/api"></Stats>
+            <h5 className='mb-3 text-center'>Global</h5>
+            <Stats url='https://covid19.mathdro.id/api'></Stats>
           </Col>
         </Row>
       </Container>
-    </div>
+      <Footer />
+    </Fragment>
   );
 }

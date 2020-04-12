@@ -1,13 +1,13 @@
-import React, { Fragment, useState } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import Stats from "./Stats";
-import { InputGroup, Button } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
+import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Stats from './Stats';
+import { InputGroup, Button } from 'react-bootstrap';
+import { FaSearch } from 'react-icons/fa';
 
 const Wrapper = styled.div`
   max-width: 300px;
-  margin: 20px auto;
+  margin: 30px auto 20px;
   position: relative;
 
   @media (max-width: 600px) {
@@ -65,14 +65,14 @@ export default function AutoComplete(props) {
 
   AutoComplete.propTypes = {
     suggestions: PropTypes.instanceOf(Array),
-    countries: PropTypes.instanceOf(Array),
+    countries: PropTypes.instanceOf(Array)
   };
 
   AutoComplete.defaultProps = {
-    suggestions: [],
+    suggestions: []
   };
 
-  const [selectedCountry, setSelectedCountry] = useState("GRC");
+  const [selectedCountry, setSelectedCountry] = useState('GBR');
 
   // The active selection's index
   const [activeSuggestion, setActiveSuggestion] = useState(0);
@@ -81,14 +81,14 @@ export default function AutoComplete(props) {
   // Whether or not the suggestion list is shown
   const [showSuggestions, setShowSuggestions] = useState(false);
   // What the user has entered
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState('');
 
   const handleSubmit = (input) => {
     const found = countries.find((c) => c.name === input);
     if (found !== undefined) {
       setSelectedCountry(found.iso3);
     } else {
-      alert("Please enter a valid country.");
+      alert('Please enter a valid country.');
     }
   };
 
@@ -157,7 +157,7 @@ export default function AutoComplete(props) {
 
             // Flag the active suggestion with a class
             if (index === activeSuggestion) {
-              className = "suggestion-active";
+              className = 'suggestion-active';
             }
 
             return (
@@ -184,30 +184,30 @@ export default function AutoComplete(props) {
   return (
     <Fragment>
       <Wrapper>
-        <div className="input-group">
+        <div className='input-group'>
           <CountryInput
-            placeholder="Country"
-            aria-label="Country"
-            className="form-control"
+            placeholder='United Kingdom'
+            aria-label='Country'
+            className='form-control'
             onChange={onChange}
             onKeyDown={onKeyDown}
             value={userInput}
           />
           <InputGroup.Append>
             <Button
-              variant="secondary"
+              variant='secondary'
               onClick={(e) => {
                 e.preventDefault();
                 handleSubmit(userInput);
               }}
             >
-              <FaSearch size="18" color="#ffffff" />
+              <FaSearch size='18' color='#ffffff' />
             </Button>
           </InputGroup.Append>
         </div>
 
         {suggestionsListComponent}
-        <h5 className="mt-3 text-center">{showCountryName()}</h5>
+        <h5 className='mt-3 text-center'>{showCountryName()}</h5>
       </Wrapper>
 
       <Stats
