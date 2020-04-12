@@ -24,6 +24,12 @@ export default function IndexPage() {
       <Head>
         <title>COVID-19 Stats</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta property='og:title' content='COVID-19 Stats' />
+        <meta property='og:description' content='Global stats of COVID-19' />
+        <meta
+          property='og:image'
+          content='https://dinoxas-corona.netlify.com/logo.png'
+        />
         <link rel='icon' type='image/x-icon' href='favicon.ico' />
         <link
           rel='stylesheet'
