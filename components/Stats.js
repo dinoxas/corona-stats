@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import useStats from "../utils/useStats";
-import { Spinner } from "react-bootstrap";
-import Moment from "react-moment";
-import CountUp from "react-countup";
+import styled from 'styled-components';
+import useStats from '../utils/useStats';
+import { Spinner } from 'react-bootstrap';
+import Moment from 'react-moment';
+import CountUp from 'react-countup';
 
 const StatGrid = styled.div`
   display: flex;
@@ -54,62 +54,62 @@ export default function Stats({ url }) {
   const { stats, loading, error } = useStats(url);
   if (loading)
     return (
-      <div className="d-flex justify-content-center">
-        <Spinner animation="border" variant="secondary" />
+      <div className='d-flex justify-content-center'>
+        <Spinner animation='border' variant='secondary' />
       </div>
     );
-  if (error) return <h4 className="text-center">Error...</h4>;
+  if (error) return <h4 className='text-center'>Error...</h4>;
   return (
-    <div className="">
+    <div className=''>
       <StatGrid>
         <StatBlock>
-          <h5 className="mb-0 font-weight-bold small">Confirmed</h5>
+          <h5 className='mb-0 font-weight-bold small'>Confirmed</h5>
           <StatHeading>
             <CountUp
               start={0}
               end={stats.confirmed.value}
               duration={2}
-              separator=","
+              separator=','
             />
           </StatHeading>
-          <div className="small pl-1 pr-1">Number of active cases</div>
+          <div className='small pl-1 pr-1'>Number of active cases</div>
         </StatBlock>
 
         <StatBlock>
-          <h5 className="mb-0 font-weight-bold small">Recovered</h5>
+          <h5 className='mb-0 font-weight-bold small'>Recovered</h5>
           <StatHeading>
             <CountUp
               start={0}
               end={stats.recovered.value}
               duration={2}
-              separator=","
+              separator=','
             />
           </StatHeading>
-          <div className="small pl-1 pr-1">
+          <div className='small pl-1 pr-1'>
             {((stats.recovered.value / stats.confirmed.value) * 100).toFixed(1)}
             % Recovery rate
           </div>
         </StatBlock>
 
         <StatBlock>
-          <h5 className="mb-0 font-weight-bold small">Deaths</h5>
+          <h5 className='mb-0 font-weight-bold small'>Deaths</h5>
           <StatHeading>
             <CountUp
               start={0}
               end={stats.deaths.value}
               duration={2}
-              separator=","
+              separator=','
             />
           </StatHeading>
-          <div className="small pl-1 pr-1">
+          <div className='small pl-1 pr-1'>
             {((stats.deaths.value / stats.confirmed.value) * 100).toFixed(1)}%
             Fatality rate
           </div>
         </StatBlock>
       </StatGrid>
-      <div className="text-center mb-3">
-        <span className="">Last update: </span>{" "}
-        <Moment format="DD/MM/YYYY HH:mm">{stats.lastUpdate}</Moment>
+      <div className='text-center mb-3 small'>
+        Last update:
+        <br /> <Moment format='LLLL'>{stats.lastUpdate}</Moment>
       </div>
     </div>
   );

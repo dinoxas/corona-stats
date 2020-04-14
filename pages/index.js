@@ -22,17 +22,22 @@ export default function IndexPage() {
   return (
     <Fragment>
       <Head>
-        <title>COVID-19 Stats</title>
+        <title>
+          COVID-19 Checker - Latest stats of confirmed cases, recoveries and
+          deaths of the coronavirus
+        </title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta property='og:title' content='COVID-19 Checker' />
         <meta
-          property='og:description'
-          content='Latest numbers on COVID-19 cases'
+          property='og:image'
+          content='https://dinoxas-corona.netlify.com/covid19-checker.jpg'
         />
         <meta
-          property='og:image'
-          content='https://dinoxas-corona.netlify.com/logo.png'
+          property='og:description'
+          content='Latest numbers of confirmed cases, recoveries and deaths of COVID-19 by country'
         />
+        <meta property='og:type' content='website' />
+        <meta property='og:locale' content='en_GB' />
         <link rel='icon' type='image/x-icon' href='favicon.ico' />
         <link
           rel='stylesheet'
