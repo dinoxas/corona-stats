@@ -1,6 +1,6 @@
-## COVID-19 (Coronavirus) stats
+## COVID-19 (Coronavirus) Checker
 
-React application that displays the latest COVID-19 (Coronavirus) stats.
+React application that displays the latest stats of confirmed cases, recoveries and deaths of the COVID-19 (coronavirus).
 
 [DEMO](https://dinoxas-corona.netlify.com)
 
